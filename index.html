@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body class="bg-info text-white">
+    <div class="text-center">
+    <h1 class="mt-5">Weather App</h1> <br>
+    <form action="/" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                <input type="text" id="cityName" name="cityName" placeholder="City" class="form-control">  
+                </div> <div class="col-sm">
+                <input type="text" id="stateName" name="stateName" placeholder="State" class="form-control">   
+                </div> <div class="col-sm">
+                <input type="text" id="countryName" name="countryName" placeholder="Country" class="form-control"> 
+                </div> 
+    </div> <br>
+    <button class="submit btn btn-light">Find</button>
+</div>
+    </form>
+    <br> <br>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col">
+                {% if data %}
+                <div class="card mx-auto p-2" style="width: 12rem;">
+                        <div>
+                            <div>
+                                <figure class="card-img-top">
+                                    <img src="https://openweathermap.org/img/wn/{{data.icon}}@2x.png" alt="Icon">
+                                </figure>
+                                <div>
+                                    
+                                </div>
+                            </div>
+                            <div>
+                                <div class="content">
+                                    <p>
+                                        <span class="title"><strong>{{ data.name }}</strong></span><br>
+                                        <span class="subtitle">{{data.temperature}} °C</span><br>
+                                            {{ data.main }}
+                                    </p>
+                                </div>
+                            </div>  
+                        </div>
+                </div>
+            </div>
+        <div class="col"></div>
+        <div class="col"></div>
+        {% endif %}
+    </div>
+    <br> <h2 class="mt-5">Forecast</h2> <br>
+    <div class="row">
+        {% if lst %}
+        <div class="col">
+            <div class="card mx-auto p-2" style="width: 12rem;">
+                <div>
+                    <div>
+                        <figure class="card-img-top">
+                            <span class="title"><strong>{{lst[0]}}</strong></span><br>
+                            <img src="https://openweathermap.org/img/wn/{{lst[2]}}@2x.png" alt="Icon">
+                        </figure>
+                    </div>
+                    <div>
+                        <span class="title">{{lst[3]}} °C</span><br>
+                        <span class="subtitle">{{lst[1]}}</span><br> <br>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="col">
+            <div class="card mx-auto p-2" style="width: 12rem;">
+                <div>
+                    <div>
+                        <figure class="card-img-top">
+                            <span class="title"><strong>{{lst[4]}}</strong></span><br>
+                            <img src="https://openweathermap.org/img/wn/{{lst[6]}}@2x.png" alt="Icon">
+                        </figure>
+                    </div>
+                    <div>
+                        <span class="title">{{lst[7]}} °C</span><br>
+                        <span class="subtitle">{{lst[5]}}</span><br> <br>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="col">
+            <div class="card mx-auto p-2" style="width: 12rem;">
+                <div>
+                    <div>
+                        <figure class="card-img-top">
+                            <span class="title"><strong>{{lst[8]}}</strong></span><br>
+                            <img src="https://openweathermap.org/img/wn/{{lst[10]}}@2x.png" alt="Icon">
+                        </figure>
+                    </div>
+                    <div>
+                        <span class="title">{{lst[11]}} °C</span><br>
+                        <span class="subtitle">{{lst[9]}}</span><br> <br>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="col">
+            <div class="card mx-auto p-2" style="width: 12rem;">
+                <div>
+                    <div>
+                        <figure class="card-img-top">
+                            <span class="title"><strong>{{lst[12]}}</strong></span><br>
+                            <img src="https://openweathermap.org/img/wn/{{lst[14]}}@2x.png" alt="Icon">
+                        </figure>
+                    </div>
+                    <div>
+                        <span class="title">{{lst[15]}} °C</span><br>
+                        <span class="subtitle">{{lst[13]}}</span><br> <br>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="col">
+            <div class="card mx-auto p-2" style="width: 12rem;">
+                <div>
+                    <div>
+                        <figure class="card-img-top">
+                            <span class="title"><strong>{{lst[16]}}</strong></span><br>
+                            <img src="https://openweathermap.org/img/wn/{{lst[18]}}@2x.png" alt="Icon">
+                        </figure>
+                    </div>
+                    <div>
+                        <span class="title">{{lst[19]}} °C</span><br>
+                        <span class="subtitle">{{lst[17]}}</span><br> <br>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
